@@ -1,0 +1,385 @@
+<mxfile host="app.diagrams.net" agent="Repzin architecture documentation" pages="4">
+  <diagram id="C1 - System Context" name="C1 - System Context">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;align=left;fontSize=30;fontStyle=1;fontColor=#102a43;" value="Repzin | C1 — System context" vertex="1">
+          <mxGeometry height="50" width="1700" x="-35" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=0;align=left;fontSize=15;fontColor=#52606d;" value="Phase-one target • 2026-11-07 • Blue: Repzin responsibility · Grey: external system · Dashed: future/deferred" vertex="1">
+          <mxGeometry height="50" width="1700" x="-35" y="-65" as="geometry" />
+        </mxCell>
+        <mxCell id="staff" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;" value="Owner / branch manager / staff [Person] &#xa;Manage members, payments, terminals and reports" vertex="1">
+          <mxGeometry height="160" width="290" x="-50" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="member" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;" value="Gym member [Person] &#xa;Enrolls biometrics at a terminal (attends gym)" vertex="1">
+          <mxGeometry height="150" width="280" x="-40" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="repzin" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#1168bd;strokeColor=#0b4884;fontColor=#ffffff;" value="Repzin platform [Software system] &#xa;Tenant and branch operations, paid-access intent, reporting and reminder orchestration" vertex="1">
+          <mxGeometry height="210" width="430" x="600" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="idp" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="Identity provider — TBD [External software system] &#xa;Staff login / OIDC / token issuance Gatekeeper role remains to be decided" vertex="1">
+          <mxGeometry height="160" width="420" x="1370" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="notify" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="WhatsApp / email provider [External software system] WhatsApp first; email delivery later" vertex="1">
+          <mxGeometry height="140" width="350" x="1430" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="hws" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="Hardware integration service (HWS) [Separate integration system] Terminal connectivity and vendor protocol handling; Hikvision first, SDK-free" vertex="1">
+          <mxGeometry height="170" width="430" x="600" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="term" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="Branch access terminals [External hardware] Capture face / fingerprint, store credentials and expiry; authorize entry locally" vertex="1">
+          <mxGeometry height="170" width="350" x="640" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="portal" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;fontColor=#666666;" value="Member portal [Future client] Not in phase one" vertex="1">
+          <mxGeometry height="110" width="280" x="-320" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="staff" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="repzin" value="Uses owner/staff portal [HTTPS]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="staff" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.379;entryDx=0;entryDy=0;entryPerimeter=0;" target="idp" value="Authenticates [OIDC]">
+          <mxGeometry relative="1" x="0.1478" as="geometry">
+            <Array as="points">
+              <mxPoint x="95" y="90" />
+              <mxPoint x="100" y="90" />
+            </Array>
+            <mxPoint x="1360" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="repzin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="idp" value="Validates issuer signing keys [HTTPS]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="repzin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="notify" value="Requests reminder delivery [HTTPS]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1515" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="repzin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="hws" value="Enrollment / sync / access intent [authenticated HTTPS]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="815" y="610" />
+              <mxPoint x="815" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="hws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;dashed=1;exitX=0;exitY=0.3;entryX=0;entryY=0.8;" target="repzin" value="Enrollment results / command status / access events [HTTPS]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="420" y="681" />
+              <mxPoint x="420" y="368" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="hws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="term" value="Vendor protocol: provision / revoke / collect events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="member" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="term" value="Physical enrollment and local access">
+          <mxGeometry relative="1" x="0.0165" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#594700;fontSize=14;" value="Critical boundary: no backend request is needed to decide entry. A terminal can admit only users stored locally. Phase one distributes credentials within one branch; no cross-branch synchronization." vertex="1">
+          <mxGeometry height="125" width="650" x="-120" y="1075" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="C2 - Containers" name="C2 - Containers">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;align=left;fontSize=30;fontStyle=1;fontColor=#102a43;" value="Repzin | C2 — Containers" vertex="1">
+          <mxGeometry height="50" width="1700" x="-290" y="-70" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=0;align=left;fontSize=15;fontColor=#52606d;" value="Target architecture • Existing backend/database foundation; portal, workers and integration/storage contracts require implementation" vertex="1">
+          <mxGeometry height="50" width="1700" x="-290" y="-15" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;verticalAlign=top;align=left;fontStyle=1;" value="          Repzin software-system boundary" vertex="1">
+          <mxGeometry height="820" width="1430" x="-210" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="staff" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;" value="Owner / authorized staff [Person]" vertex="1">
+          <mxGeometry height="100" width="270" x="-530" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="portal" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#1168bd;strokeColor=#0b4884;fontColor=#ffffff;" value="Owner / staff portal [Web application — proposed] Tenant/branch selection and management UI" vertex="1">
+          <mxGeometry height="150" width="300" x="-70" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#1168bd;strokeColor=#0b4884;fontColor=#ffffff;" value="Backend API + hosted workers [ASP.NET Core / .NET 10] ONE deployed container REST, application handlers, identity adapter, persistence and durable job processing" vertex="1">
+          <mxGeometry height="190" width="560" x="550" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;shape=cylinder;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#214528;" value="PostgreSQL [Database] &#xa;Tenant business data, staff grants, metadata, audit, outbox and job state" vertex="1">
+          <mxGeometry height="160" width="350" x="370" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="bio" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;shape=cylinder;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#214528;" value="Encrypted biometric storage [Storage adapter — R2 proposed] Face images / fingerprint templates; restricted access and retention deletion Provider and deployment TBD" vertex="1">
+          <mxGeometry height="190" width="420" x="-140" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="idp" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="External identity provider — TBD [OIDC service] Login and access-token issuance" vertex="1">
+          <mxGeometry height="145" width="360" x="1410" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="hws" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="HWS integration service [Separate service] &#xa;Device connectivity, credential transfer and results; adapter details owned by integration team" vertex="1">
+          <mxGeometry height="170" width="360" x="1410" y="473" as="geometry" />
+        </mxCell>
+        <mxCell id="term" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="Branch terminals [Hardware] &#xa;Local recognition / validity checks; delayed event delivery supported" vertex="1">
+          <mxGeometry height="145" width="360" x="1410" y="851" as="geometry" />
+        </mxCell>
+        <mxCell id="provider" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="Notification providers [External API] &#xa;WhatsApp first; email later" vertex="1">
+          <mxGeometry height="120" width="340" x="780" y="996" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="staff" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="portal" value="Uses [browser]">
+          <mxGeometry relative="1" x="-0.2125" y="5" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+            <mxPoint x="-330" y="440" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="portal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="api" value="REST / JSON + access token [HTTPS]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="portal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.004;entryY=0.338;entryDx=0;entryDy=0;entryPerimeter=0;" target="idp" value="OIDC login / PKCE; client session design TBD">
+          <mxGeometry relative="1" x="0.0082" as="geometry">
+            <Array as="points">
+              <mxPoint x="80" y="170" />
+              <mxPoint x="1410" y="170" />
+              <mxPoint x="1410" y="169" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="idp" value="JWT metadata and signing keys [HTTPS]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="db" value="EF Core writes; Dapper reads [PostgreSQL]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="540" />
+              <mxPoint x="545" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.111;exitY=0.99;entryX=0.5;entryY=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="bio" value="Encrypted credential read/write/delete [adapter]">
+          <mxGeometry relative="1" x="0.7894" y="20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="620" y="408.1" />
+              <mxPoint x="620" y="490" />
+              <mxPoint x="80" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="hws" value="Durable commands / credential transfer [HTTPS]">
+          <mxGeometry relative="1" x="0.0692" as="geometry">
+            <mxPoint x="1110" y="350" as="sourcePoint" />
+            <mxPoint x="1500" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="hws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;dashed=1;exitX=0;exitY=0.2;entryX=1;entryY=0.9;" target="api" value="Results and events [authenticated HTTPS]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="hws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="term" value="Vendor device protocol">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.75;exitY=1;entryX=0.56;entryY=0.007;exitDx=0;exitDy=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="provider" value="Delivery requests [HTTPS]">
+          <mxGeometry relative="1" x="-0.13" as="geometry">
+            <Array as="points" />
+            <mxPoint x="1100" y="409.99999999999955" as="sourcePoint" />
+            <mxPoint x="940" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#594700;fontSize=14;" value="Workers run inside the backend process initially. PostgreSQL is the durable queue; no Redis, broker or separately deployed CQRS read store is required for the base. Projects are compile-time boundaries, not network services." vertex="1">
+          <mxGeometry height="110" width="880" x="-210" y="996" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="C3 - Backend Components" name="C3 - Backend Components">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;align=left;fontSize=30;fontStyle=1;fontColor=#102a43;" value="Repzin | C3 — Backend components" vertex="1">
+          <mxGeometry height="50" width="1700" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=0;align=left;fontSize=15;fontColor=#52606d;" value="Zoom into the ONE backend container • Solid boxes: existing projects; descriptions include planned components, not claims of implemented flows" vertex="1">
+          <mxGeometry height="50" width="1700" x="40" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;verticalAlign=top;align=left;fontStyle=1;" value="                  Backend API container / single ASP.NET Core process" vertex="1">
+          <mxGeometry height="890" width="1620" x="40" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#e8f2ff;strokeColor=#337ab7;fontColor=#12395c;" value="Repzin.Api [HTTP / composition root] Controllers, contracts, Problem Details, middleware, OpenAPI, health, rate limits Current: basic host + status route" vertex="1">
+          <mxGeometry height="185" width="400" x="90" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="identity" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#e8f2ff;strokeColor=#337ab7;fontColor=#12395c;" value="Repzin.Identity [Security adapter] &#xa;JWT validation; proposed resolved actor context and permission policies Current: claim-based tenant resolver/policies" vertex="1">
+          <mxGeometry height="185" width="400" x="830" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="application" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#e8f2ff;strokeColor=#337ab7;fontColor=#12395c;" value="Repzin.Application &#xa;[Use cases + ports] Proposed ICommand / IQuery handlers and dispatcher; validation, authorization and transaction decorators; repository/query interfaces Current: DI placeholder + abstractions" vertex="1">
+          <mxGeometry height="210" width="440" x="90" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="domain" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#e8f2ff;strokeColor=#337ab7;fontColor=#12395c;" value="Repzin.Domain [Business model] &#xa;Entities and invariants; aggregate boundaries refined per use case No HTTP / EF / provider dependencies" vertex="1">
+          <mxGeometry height="155" width="340" x="740" y="557.5" as="geometry" />
+        </mxCell>
+        <mxCell id="infra" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#e8f2ff;strokeColor=#337ab7;fontColor=#12395c;" value="Repzin.Infrastructure [Outbound adapters] &#xa;EF Core DbContext, mappings, migrations; Dapper queries; proposed repositories, outbox and provider/storage clients" vertex="1">
+          <mxGeometry height="200" width="360" x="1270" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="workers" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#e8f2ff;strokeColor=#337ab7;fontColor=#12395c;" value="Hosted worker entry points — proposed [Background components] Lease jobs; resolve explicit service/tenant scope; invoke application operations; bounded retries" vertex="1">
+          <mxGeometry height="155" width="480" x="500" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;shape=cylinder;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#214528;" value="PostgreSQL [External to API container]" vertex="1">
+          <mxGeometry height="130" width="250" x="1870" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="external" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="HWIS / storage / messaging [External services]" vertex="1">
+          <mxGeometry height="130" width="250" x="1870" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="identity" value="Resolve authenticated actor / policies">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="application" value="Dispatch typed commands / queries">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="450" />
+              <mxPoint x="190" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="application" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="domain" value="Uses model and invariants">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="infra" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitDx=0;exitDy=0;" value="Implements application ports">
+          <mxGeometry relative="1" x="-0.0179" as="geometry">
+            <Array as="points">
+              <mxPoint x="1450" y="485" />
+              <mxPoint x="310" y="485" />
+            </Array>
+            <mxPoint x="1450" y="530" as="sourcePoint" />
+            <mxPoint x="310" y="525" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="infra" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="domain" value="Maps and persists entities">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="identity" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;dashed=1;exitX=0.486;exitY=1;entryX=0.692;entryY=0.005;entryDx=0;entryDy=0;entryPerimeter=0;exitDx=0;exitDy=0;exitPerimeter=0;" value="Implements security context ports">
+          <mxGeometry relative="1" x="0.0482" as="geometry">
+            <Array as="points">
+              <mxPoint x="1025.5" y="405" />
+              <mxPoint x="1025.5" y="455" />
+              <mxPoint x="390" y="455" />
+            </Array>
+            <mxPoint x="1025.52" y="400" as="sourcePoint" />
+            <mxPoint x="390" y="526.05" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="workers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="application" value="Dispatches with explicit trusted job scope">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="workers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="infra" value="Uses lease / outbound adapters">
+          <mxGeometry relative="1" x="-0.2365" y="-3" as="geometry">
+            <mxPoint y="-1" as="offset" />
+            <Array as="points">
+              <mxPoint x="1400" y="917.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="infra" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="db" value="EF / Dapper [PostgreSQL]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="infra" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="external" value="Outbound authenticated calls">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1795" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#594700;fontSize=14;" value="Arrow meaning: compile-time dependency or labeled runtime call. Dashed arrows identify adapter-to-port implementation. Application has no Infrastructure reference. API composes all projects; in-process modules do not call each other over HTTP." vertex="1">
+          <mxGeometry height="100" width="1320" x="220" y="1070" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Dynamic - Branch Access" name="Dynamic - Branch Access">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;align=left;fontSize=30;fontStyle=1;fontColor=#102a43;" value="Repzin | Dynamic view — branch enrollment and access" vertex="1">
+          <mxGeometry height="50" width="1700" x="-120" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=0;align=left;fontSize=15;fontColor=#52606d;" value="Target operational flow • Numbered actions are logical steps, not a new service deployment or a per-entry authorization round-trip" vertex="1">
+          <mxGeometry height="50" width="1700" x="-120" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="staff" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#08427b;strokeColor=#052e56;fontColor=#ffffff;" value="Authorized branch staff [Person]" vertex="1">
+          <mxGeometry height="130" width="280" x="-130" y="230.5" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#1168bd;strokeColor=#0b4884;fontColor=#ffffff;" value="Repzin backend [API + hosted worker] &#xa;Owns identity, eligibility and desired access state" vertex="1">
+          <mxGeometry height="155" width="430" x="550" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="hws" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="HWS [Integration service] &#xa;Owns terminal operations and vendor protocol" vertex="1">
+          <mxGeometry height="155" width="380" x="1330" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="capture" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="Enrollment terminal [Branch A hardware] &#xa;Physical face / fingerprint capture" vertex="1">
+          <mxGeometry height="150" width="380" x="1230" y="631.5" as="geometry" />
+        </mxCell>
+        <mxCell id="other" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#6b7280;strokeColor=#4b5563;fontColor=#ffffff;" value="Other compatible terminals [Same Branch A] &#xa;Store mapped user, credential and validity" vertex="1">
+          <mxGeometry height="155" width="430" x="550" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;shape=cylinder;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#214528;" value="PostgreSQL + biometric store [Data stores] Command state, identity mapping, retained encrypted biometric data" vertex="1">
+          <mxGeometry height="170" width="340" x="80" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="staff" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="api" value="1. Register biometrics / grant / revoke [HTTPS]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="hws" value="2. Persist then dispatch durable intent [HTTPS]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="hws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;" target="capture" value="3. Trigger capture if supported; manual fallback">
+          <mxGeometry relative="1" x="0.2779" y="30" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1500" y="477.5" />
+              <mxPoint x="1420" y="477.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="capture" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;dashed=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" target="hws" value="4. Enrollment result + captured data">
+          <mxGeometry relative="1" x="0.0016" as="geometry">
+            <Array as="points">
+              <mxPoint x="1610" y="700" />
+              <mxPoint x="1770" y="700" />
+              <mxPoint x="1770" y="297.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="hws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=0;" target="api" value="5. Return mapping / data / per-terminal outcome">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1420" y="150" />
+              <mxPoint x="765" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" target="db" value="6. Save encrypted data reference + durable fan-out">
+          <mxGeometry relative="1" x="0.6531" y="40" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="hws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.004;exitY=0.84;exitDx=0;exitDy=0;exitPerimeter=0;" target="other" value="7. Provision compatible terminals in same branch">
+          <mxGeometry relative="1" x="-0.0568" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="350.2" />
+              <mxPoint x="1090" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="other" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52606d;fontColor=#334e68;fontFamily=Helvetica;fontSize=13;labelBackgroundColor=#ffffff;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="api" value="8. Successful events forwarded via HWS (logical route)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="local" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#594700;fontSize=14;" value="LOCAL ENTRY RULE Terminal recognizes stored credential and applies stored validity. No backend member lookup during entry. Backend persists only first successful member access per branch-local day; denied and later same-day attempts are not attendance." vertex="1">
+          <mxGeometry height="230" width="340" x="70" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="schedule" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#594700;fontSize=14;" value="IMMEDIATE VS DAILY Immediate: enrollment fan-out, paid activation, renewal and manual revocation. Daily: branch-configured reconciliation / repairs and eligible capacity eviction. Offline work stays pending until terminal acknowledgment." vertex="1">
+          <mxGeometry height="190" width="580" x="1140" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="limit" parent="1" style="rounded=1;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=15;spacing=12;arcSize=8;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#594700;fontSize=14;" value="Enrollment eligibility differs from entry eligibility: paid registration fee is sufficient where enabled; otherwise active paid membership is needed. Entry always requires valid paid membership. Central deletion requires fresh physical enrollment; terminal-only eviction can restore retained credentials." vertex="1">
+          <mxGeometry height="125" width="610" x="460" y="862.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
